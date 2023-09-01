@@ -3,7 +3,7 @@ import pandas as pd
 
 def transform_data(input_df):
     # Unpivot the data
-    melted_data = pd.melt(input_df, id_vars=["respondent_id"], 
+    melted_data = pd.melt(input_df, id_vars=["profile_id"], 
                           value_vars=input_df.columns[1:],
                           var_name="Response Option",
                           value_name="Selected")
@@ -15,10 +15,12 @@ def transform_data(input_df):
         "Selected": "Selected",
         "No": "Not selected",
         "0": "Not selected",
-        "Not selected": "Not selected"
+        "Not selected": "Not selected",
+        "": "Not selected",  # for blank strings
+        None: "Not selected"  # for NaN values
     }
     
-    melted_data['Selected'] = melted_data['Selected'].astype(str).map(value_mapping)
+    melted_data['Selected'] = melted_data['Selected'].astype(str).map(value_mapping).fillna("Not selected")
     
     return melted_data
 
