@@ -3,7 +3,7 @@ import pandas as pd
 
 def transform_data(input_df):
     # Unpivot the data
-    melted_data = pd.melt(input_df, id_vars=["profile_id"], 
+    melted_data = pd.melt(input_df, id_vars=["respondent_id"], 
                           value_vars=input_df.columns[1:],
                           var_name="Response Option",
                           value_name="Selected")
