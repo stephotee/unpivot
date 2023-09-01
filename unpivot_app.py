@@ -2,10 +2,24 @@ import streamlit as st
 import pandas as pd
 
 def transform_data(input_df):
-    melted_data = pd.melt(input_df, id_vars=["respondent_id"], 
+    # Unpivot the data
+    melted_data = pd.melt(input_df, id_vars=["profile_id"], 
                           value_vars=input_df.columns[1:],
                           var_name="Response Option",
                           value_name="Selected")
+    
+    # Map the values
+    value_mapping = {
+        "Yes": "Selected",
+        "1": "Selected",
+        "Selected": "Selected",
+        "No": "Not selected",
+        "0": "Not selected",
+        "Not selected": "Not selected"
+    }
+    
+    melted_data['Selected'] = melted_data['Selected'].astype(str).map(value_mapping)
+    
     return melted_data
 
 st.title('Unpivot Multi-Select Survey Data')
