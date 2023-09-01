@@ -10,7 +10,7 @@ def transform_data(input_df):
 
 st.title('Unpivot Multi-Select Survey Data')
 
-st.write('This web app will help you convert multi-select question data into a pivotal format.')
+st.text('This web app will help you convert multi-select question data into a pivotal format.')
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
