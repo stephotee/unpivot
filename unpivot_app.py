@@ -2,13 +2,15 @@ import streamlit as st
 import pandas as pd
 
 def transform_data(input_df):
-    melted_data = pd.melt(input_df, id_vars=["profile_id"], 
+    melted_data = pd.melt(input_df, id_vars=["respondent_id"], 
                           value_vars=input_df.columns[1:],
                           var_name="Response Option",
                           value_name="Selected")
     return melted_data
 
 st.title('Unpivot Multi-Select Survey Data')
+
+st.write("This web app will help you convert multi-select question data into a pivotal format.")
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
