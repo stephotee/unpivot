@@ -13,9 +13,11 @@ def transform_data(input_df):
         "Yes": "Selected",
         "1": "Selected",
         "Selected": "Selected",
+        "True": "Selected",
         "No": "Not selected",
         "0": "Not selected",
         "Not selected": "Not selected",
+        "False": "Not selected",
         "": "Not selected",  # for blank strings
         None: "Not selected"  # for NaN values
     }
