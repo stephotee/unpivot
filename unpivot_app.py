@@ -29,7 +29,7 @@ def transform_data(input_df):
 st.title('Unpivot Multi-Select Survey Data')
 
 st.write('This is a simple web app that can help you convert multi-select data from a survey into into a format that you can pivot. In other words, it will help you unpivot your data.')
-st.write('For example, let's say you have a survey question that looks like this:')
+st.write('For example, say you have a survey question that looks like this:')
 st.write('**Which of the following terms, if any, would you use to describe <brand name>? Choose all that apply.**')
 st.markdown(“- Affordable”)
 st.markdown(“- Durable”)
