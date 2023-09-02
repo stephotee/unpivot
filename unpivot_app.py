@@ -39,11 +39,11 @@ st.markdown('- None of the above')
 st.write('A raw data export for a question like this would typically look like this:')
 st.write(pd.DataFrame({
     'response_id': [1, 2, 3, 4, 5],
-    'Q3 = Affordable': [1, 1, 1, 0, 0],
-    'Q3 = Durable': [[0, 1, 0, 1, 0],
-    'Q3 = High quality': [0, 0, 1, 1, 0],
-    'Q3 = Stylish': [1, 0, 1, 0, 0],
-    'Q3 = None of the above': [0, 0, 0, 0, 1],
+    'Q3 Affordable': [1, 1, 1, 0, 0],
+    'Q3 Durable': [[0, 1, 0, 1, 0],
+    'Q3 High quality': [0, 0, 1, 1, 0],
+    'Q3 Stylish': [1, 0, 1, 0, 0],
+    'Q3 None of the above': [0, 0, 0, 0, 1],
 }))
 st.write('Unfortunately, this format can not easily be pivoted in Excel, so this script will convert it to a multi-row, single-column format that looks like this:')
 st.write(pd.DataFrame({
