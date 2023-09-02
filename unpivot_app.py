@@ -55,7 +55,7 @@ st.write('Unfortunately, this format can not easily be pivoted in Excel, so this
 st.write(pd.DataFrame({
     'response_id': [1, 2, 3, 4, 5],
     'Response Option': ["Affordable", "Affordable", "Affordable", "Affordable", "Affordable"],
-    'Selected': [["Selected", "Selected", "Selected", "Not selected", "Not selected"],
+    'Selected': ["Selected", "Selected", "Selected", "Not selected", "Not selected"],
 }))
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
