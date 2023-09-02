@@ -29,10 +29,27 @@ def transform_data(input_df):
 st.title('Unpivot Multi-Select Survey Data')
 
 st.write('This is a simple web app that can help you convert multi-select data from a survey into into a format that you can pivot. In other words, it will help you unpivot your data.')
-
+st.write('For example, let's say you have a survey question that looks like this:')
+st.write('**Which of the following terms, if any, would you use to describe <brand name>? Choose all that apply.**')
+st.markdown(“- Affordable”)
+st.markdown(“- Durable”)
+st.markdown(“- High quality”)
+st.markdown(“- Stylish”)
+st.markdown(“- None of the above”)
+st.write('A raw data export for a question like this would typically look like this:')
 st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40],
+    'response_id': [1, 2, 3, 4, 5],
+    'Q3 = Affordable': [1, 1, 1, 0, 0],
+    'Q3 = Durable': [[0, 1, 0, 1, 0],
+    'Q3 = High quality': [0, 0, 1, 1, 0],
+    'Q3 = Stylish': [1, 0, 1, 0, 0],
+    'Q3 = None of the above': [0, 0, 0, 0, 1],
+}))
+st.write('Unfortunately, this format can not easily be pivoted in Excel, so this script will convert it to a multi-row, single-column format that looks like this:')
+st.write(pd.DataFrame({
+    'response_id': [1, 2, 3, 4, 5],
+    'Response Option': ["Affordable", "Affordable", "Affordable", "Affordable", "Affordable"],
+    'Selected': [["Selected", "Selected", "Selected", "Not selected", "Not selected],
 }))
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
