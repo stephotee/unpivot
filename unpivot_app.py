@@ -56,7 +56,10 @@ st.write(pd.DataFrame({
 }))
 
 st.write('For more information on how to prepare your file check out the link below')
-[Click here](https://analythical.com/blog/unpivot-multi-select-data-tool)
+url = "https://www.streamlit.io"
+st.write("check out this [link](%s)" % url)
+st.markdown("check out this [link](%s)" % url)
+
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
 if uploaded_file:
