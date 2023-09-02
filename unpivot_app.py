@@ -30,6 +30,11 @@ st.title('Unpivot Multi-Select Survey Data')
 
 st.write('This is a simple web app that can help you convert multi-select data from a survey into into a format that you can pivot. In other words, it will help you unpivot your data.')
 
+st.write(pd.DataFrame({
+    'first column': [1, 2, 3, 4],
+    'second column': [10, 20, 30, 40],
+}))
+
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
 if uploaded_file:
