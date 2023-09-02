@@ -55,6 +55,8 @@ st.write(pd.DataFrame({
     'Selected': ["Selected", "Selected", "Selected", "Not selected", "Not selected"],
 }))
 
+st.write('For more information on how to prepare your file check out the link below')
+[Click here](https://analythical.com/blog/unpivot-multi-select-data-tool)
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
 if uploaded_file:
