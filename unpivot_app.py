@@ -28,7 +28,7 @@ def transform_data(input_df):
 
 st.title('Unpivot Multi-Select Survey Data')
 
-st.text('This web app will help you convert multi-select question data into a pivotal format.')
+st.write('This is a simple web app that can help you convert multi-select data from a survey into into a format that you can pivot. In other words, it will help you unpivot your data.')
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
