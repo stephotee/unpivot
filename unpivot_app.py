@@ -57,7 +57,7 @@ st.write(pd.DataFrame({
 
 st.write('For more information on how to prepare your file check out the link below')
 url = "https://analythical.com/blog/unpivot-multi-select-data-tool"
-st.write("check out this [link](%s)" % url)
+st.write("[Read the walkthrough for how to prepare your data](%s)" % url)
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
