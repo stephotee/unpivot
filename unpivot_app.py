@@ -1,21 +1,26 @@
 import streamlit as st
 import pandas as pd
 
-transform_data <- function(input_data) {
-  melted_data <- input_data %>% 
-    gather(key = "Response Option", value = "Selected", -profile_id)  # Adjust "-profile_id" if your column has a different name
-  
-  melted_data$Selected <- tolower(as.character(melted_data$Selected)) %>% 
-    recode(`1` = "Selected",
-           `0` = "Not selected",
-           "yes" = "Selected",
-           "no" = "Not selected",
-           "selected" = "Selected",
-           "not selected" = "Not selected",
-           .default = "Not selected")  # Default value for NA or empty strings
-
-  return(melted_data)
-}
+def transform_data(input_df):
+    # Unpivot the data
+    melted_data = pd.melt(input_df, id_vars=["response_id"], 
+                          value_vars=input_df.columns[1:],
+                          var_name="Response Option",
+                          value_name="Selected")
+    
+    # Map the values
+    value_mapping = {
+        "Yes": "Selected",
+        "1": "Selected",
+        "Selected": "Selected",
+        "True": "Selected",
+        "No": "Not selected",
+        "0": "Not selected",
+        "Not selected": "Not selected",
+        "False": "Not selected",
+        "": "Not selected",  # for blank strings
+        None: "Not selected"  # for NaN values
+    }
     
     melted_data['Selected'] = melted_data['Selected'].astype(str).map(value_mapping).fillna("Not selected")
     
