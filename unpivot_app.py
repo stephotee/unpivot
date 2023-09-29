@@ -30,7 +30,7 @@ def transform_data(input_df):
     return melted_data
 
 
-st.title('STAGING - Unpivot Multi-Select Survey Data')
+st.title('Unpivot Multi-Select Survey Data')
 
 st.write('This is a simple web app that can help you convert multi-select data from a survey into into a format that you can pivot. In other words, it will help you unpivot your data.')
 st.write('For example, say you have a survey question that looks like this:')
